@@ -5,7 +5,7 @@ const api = axios.create({
   baseURL: 'https://the-one-api.dev/v2',
 })
 
-const token = process.env.BEARER_TOKEN
+const token = 'Rv6fzOLC1rlzJnesAmBL'
 
 api.interceptors.request.use(
   async (config) => {
