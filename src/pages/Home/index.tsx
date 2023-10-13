@@ -17,6 +17,7 @@ export interface CardProps {
 
 export function Home() {
   const [movies, setMovies] = useState<CardProps[]>([])
+  const [filteredMovies, setFilteredMovies] = useState<CardProps[]>([])
 
   useEffect(() => {
     loadData()
@@ -26,15 +27,18 @@ export function Home() {
     const { data } = await api.get('movie')
 
     setMovies(data.docs)
+    setFilteredMovies(data.docs)
   }
 
   return (
     <Container>
-      <Header />
+      <Header movies={movies} setFilteredMovies={setFilteredMovies} />
 
       <ContainerItems>
-        {movies &&
-          movies.map((movie) => <Card movieData={movie} key={movie._id} />)}
+        {filteredMovies &&
+          filteredMovies.map((movie) => (
+            <Card movieData={movie} key={movie._id} />
+          ))}
       </ContainerItems>
     </Container>
   )
