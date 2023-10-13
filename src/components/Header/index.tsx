@@ -57,18 +57,20 @@ export function Header({ movies, setFilteredMovies }: HeaderMovieProps) {
         <p>Senior Front End Test</p>
       </TopHeader>
       <Container>
-        <h1>Lord of the Rings Movies</h1>
-        <div className="ave-values">
-          <div>
-            <p>Ave. movie runtime: {aveValues.runtime} min</p>
-            <p>Ave. movie budget: ${aveValues.budget}</p>
-          </div>
-          <div>
-            <input
-              placeholder="Filter movies by name"
-              ref={input}
-              onChange={inputChange}
-            />
+        <div>
+          <h1>Lord of the Rings Movies</h1>
+          <div className="ave-values">
+            <div>
+              <p>Ave. movie runtime: {aveValues.runtime} min</p>
+              <p>Ave. movie budget: ${aveValues.budget}</p>
+            </div>
+            <div className="input-div">
+              <input
+                placeholder="Filter movies by name"
+                ref={input}
+                onChange={inputChange}
+              />
+            </div>
           </div>
         </div>
       </Container>
